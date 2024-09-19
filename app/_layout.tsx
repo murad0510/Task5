@@ -6,6 +6,12 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { View ,Text, ScrollView} from 'react-native';
+import Market from '@/components/Market/Market';
+import Content from '@/components/Content/Content';
+import JustHotDeals from '@/components/JustHotDeals/JustHotDeals';
+import Feed from '@/components/Feed/Feed';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -27,11 +33,11 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
+    <SafeAreaView>
+      <Market />
+      {/* <Content/> */}
+      {/* <JustHotDeals/> */}
+      {/* <Feed/> */}
+    </SafeAreaView>
   );
 }
